@@ -1,3 +1,5 @@
+//Разработать набор классов с необходимым составом полей и методов для хранения
+//и обработки всех данных, хранящихся в CSV-файле вашего варианта задания.
 public class dataCountryIndicators {
     //Country,Region,Happiness Rank,Happiness Score,Standard Error,Economy (GDP per Capita),Family,Health (Life Expectancy),Freedom,Trust (Government Corruption),Generosity,Dystopia Residual
     public final String country;
