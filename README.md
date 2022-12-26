@@ -10,3 +10,9 @@ a project on the analysis of country indicators in Java
 
 3. Распарсиваем csv-файл из dataCountryIndicators в формате ArrayList, удаляем 0ой элемент и по запятой split'ом делим строку. Все поля должны, по идеи, быть заполнены
 ![image](https://user-images.githubusercontent.com/65504823/209153644-c1674117-c11c-4b51-9c1d-2cc4ac864646.png)
+
+
+4. Создал БД SQLite3 
+![image](https://user-images.githubusercontent.com/65504823/209507195-da1cc5c6-b4ff-4299-8167-439d2a284f7d.png)
+
+5-7. Создал класс (databaseLoad), который взаимодействует с базой данных, метод, создающий таблицу country в БД. Класс main объединяет работу parser, databaseLoad
