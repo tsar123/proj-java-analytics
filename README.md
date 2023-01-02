@@ -24,5 +24,4 @@ a project on the analysis of country indicators in Java
 
 <h1 align="center">Результаты:</h1> 
 ![image](https://user-images.githubusercontent.com/65504823/210247063-b23a7692-6b2b-4c60-b13f-7cec590cb680.png)
-
 ![image](https://user-images.githubusercontent.com/65504823/210246988-471d78d1-2b42-421b-a698-8dcf708cb028.png)
