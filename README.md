@@ -18,3 +18,8 @@ a project on the analysis of country indicators in Java
 5-7. Создал класс (databaseLoad), который взаимодействует с базой данных. Класс main объединяет работу parser, databaseLoad. Создал основную таблицу:
 ![2023-01-02_17-03-21](https://user-images.githubusercontent.com/65504823/210246285-04264e98-b135-426f-b619-94e1588faef3.png)
 
+8. В классе taskRun создал два метода для расчета и вывода текстовых данных
+9. С помощью готового решения JFree и примеров из интернета сделал диаграмму
+10-12. Выполнено
+
+<h1 align="center">Результаты:</h1> 
