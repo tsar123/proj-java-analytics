@@ -15,4 +15,6 @@ a project on the analysis of country indicators in Java
 4. Создал БД SQLite3 
 ![image](https://user-images.githubusercontent.com/65504823/209507195-da1cc5c6-b4ff-4299-8167-439d2a284f7d.png)
 
-5-7. Создал класс (databaseLoad), который взаимодействует с базой данных, метод, создающий таблицу country в БД. Класс main объединяет работу parser, databaseLoad
+5-7. Создал класс (databaseLoad), который взаимодействует с базой данных. Класс main объединяет работу parser, databaseLoad. Создал основную таблицу:
+![2023-01-02_17-03-21](https://user-images.githubusercontent.com/65504823/210246285-04264e98-b135-426f-b619-94e1588faef3.png)
+
