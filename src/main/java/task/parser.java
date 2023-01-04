@@ -11,7 +11,6 @@ import java.io.IOException;
 public class parser {
     public static ArrayList<dataCountryIndicators> getParse() throws IOException{
         ArrayList dataArr = new ArrayList<dataCountryIndicators>();
-
         try {
             List<String> fileName = Files.readAllLines(Paths.get("D:\\Users\\tsarg\\CountryIndicators\\dataset.csv"));
             fileName.remove(0);
