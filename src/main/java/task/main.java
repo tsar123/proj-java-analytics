@@ -6,8 +6,7 @@ import java.util.ArrayList;
 
 public class main {
     public static void main(String args[]) throws IOException {
-        boolean fullDatabase = false;
-        //если таблица заполнена данными, то fullDatabase = false
+        boolean fullDatabase = false //если таблица заполнена данными, то fullDatabase = false
         try {
             var taskRun = new taskRun();
             var dataLoad = databaseLoad.getInstance();
@@ -18,8 +17,6 @@ public class main {
             taskRun.createBarChart(dataLoad);
             taskRun.printHighEconomy(dataLoad);
             taskRun.printIndicators(dataLoad);
-
-
         } catch (SQLException e) {
             e.printStackTrace();
         }
