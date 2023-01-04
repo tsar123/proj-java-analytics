@@ -1,12 +1,11 @@
 package task;
 
-import java.io.IOException;
-import java.sql.*;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 public class main {
-    public static void main(String[] args) throws IOException {
-        boolean fullDatabase = false //если таблица заполнена данными, то fullDatabase = false
+    public static void main(String[] args) {
+        boolean fullDatabase = false;//если таблица заполнена данными, то fullDatabase = false
         try {
             var taskRun = new taskRun();
             var dataLoad = databaseLoad.getInstance();
