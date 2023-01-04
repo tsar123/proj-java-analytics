@@ -2,27 +2,25 @@ package task;
 
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.chart.renderer.category.BarRenderer;
 import org.jfree.data.category.DefaultCategoryDataset;
 
 import javax.swing.*;
 import java.awt.*;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
+import java.sql.*;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
 public class taskRun {
     public void printHighEconomy(databaseLoad dataL) {
-        String sql = "SELECT country FROM country\n" +
-                "WHERE economy = (SELECT MAX(economy) FROM country WHERE region = 'Latin America and Caribbean' OR region = 'Eastern Asia')";
+        String sql = "SELECT country FROM country WHERE economy = (SELECT MAX(economy) FROM country WHERE region = 'Latin America and Caribbean' OR region = 'Eastern Asia')";
         try (Statement stmt = dataL.getConnection().createStatement()) {
             ResultSet resultSet = stmt.executeQuery(sql);
             System.out.println("Страна с самым высоким показателем экономики среди \"Latin America and Caribbean\" и \"Eastern Asia\": " + resultSet.getString("country"));
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -51,7 +49,6 @@ public class taskRun {
         try (Statement statmt = dataLoad.getConnection().createStatement()) {
             statmt.execute(sqlFirst);
             statmt.execute(sqlDouble);
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -64,31 +61,22 @@ public class taskRun {
                 .collect(Collectors.toCollection(ArrayList::new));
 
         set.forEach(country -> dataset.addValue(country.economy, country.country, country.country));
-
-        var chart = ChartFactory.createBarChart(
-                "Экономические показатели стран",
-                "Страна",
-                "Экономический показатель",
-                dataset,
-                PlotOrientation.HORIZONTAL,
-                false,
-                false,
-                false);
-
-        var plot = chart.getCategoryPlot();
-        var br = (BarRenderer) plot.getRenderer();
+        JFreeChart chart = ChartFactory.createBarChart("Экономические показатели стран","Страна","Экономический показатель",
+                dataset, PlotOrientation.HORIZONTAL,
+                false,false,false);
+        CategoryPlot plot = chart.getCategoryPlot();
+        BarRenderer br = (BarRenderer) plot.getRenderer();
         br.setItemMargin(0);
 
-        var frame = new JFrame("Задание 1");
+        JFrame frame = new JFrame("Задание 1");
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        var cp = new ChartPanel(chart) {
+        ChartPanel panel = new ChartPanel(chart) {
             @Override
             public Dimension getPreferredSize() {
                 return new Dimension(1500, 800);
             }
         };
-
-        frame.add(cp);
+        frame.add(panel);
         frame.pack();
         frame.setLocationRelativeTo(null);
         frame.setVisible(true);
@@ -96,19 +84,13 @@ public class taskRun {
 
     public void printIndicators(databaseLoad dataLoad) throws SQLException {
         createViewsForTask(dataLoad);
-        String sql = "SELECT country\n" +
-                "FROM resultTable\n" +
-                "ORDER BY sum\n" +
-                "LIMIT 1 OFFSET 11";
-
+        String sql = "SELECT country FROM resultTable ORDER BY sum LIMIT 1 OFFSET 11";
         try (Statement statmt = dataLoad.getConnection().createStatement()) {
             ResultSet result = statmt.executeQuery(sql);
             System.out.println("Страна с самыми средними показателями экономики среди \"Western Europe\" и \"North America\": " + result.getString("country"));
-
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 }
-
 
