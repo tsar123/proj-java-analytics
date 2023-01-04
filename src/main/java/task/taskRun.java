@@ -46,9 +46,9 @@ public class taskRun {
                 "AS  \n" +
                 "select country,res.[1]+res.[2]+res.[3]+res.[4]+res.[5]+res.[6]+res.[7]+res.[8]+res.[9] as 'sum' from res\n";
 
-        try (Statement statmt = dataLoad.getConnection().createStatement()) {
-            statmt.execute(sqlFirst);
-            statmt.execute(sqlDouble);
+        try (Statement stat = dataLoad.getConnection().createStatement()) {
+            stat.execute(sqlFirst);
+            stat.execute(sqlDouble);
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
@@ -85,12 +85,11 @@ public class taskRun {
     public void printIndicators(databaseLoad dataLoad) throws SQLException {
         createViewsForTask(dataLoad);
         String sql = "SELECT country FROM resultTable ORDER BY sum LIMIT 1 OFFSET 11";
-        try (Statement statmt = dataLoad.getConnection().createStatement()) {
-            ResultSet result = statmt.executeQuery(sql);
+        try (Statement stat = dataLoad.getConnection().createStatement()) {
+            ResultSet result = stat.executeQuery(sql);
             System.out.println("Страна с самыми средними показателями экономики среди \"Western Europe\" и \"North America\": " + result.getString("country"));
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
     }
 }
-
