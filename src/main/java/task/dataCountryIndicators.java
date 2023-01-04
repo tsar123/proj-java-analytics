@@ -3,7 +3,7 @@ package task;
 //Разработать набор классов с необходимым составом полей и методов для хранения
 //и обработки всех данных, хранящихся в CSV-файле вашего варианта задания.
 public class dataCountryIndicators {
-    //Country,Region,Happiness Rank,Happiness Score,Standard Error,Economy (GDP per Capita),Family,Health (Life Expectancy),Freedom,Trust (Government Corruption),Generosity,Dystopia Residual
+    //Country,Region,Happiness Rank,Happiness Score,Standard Error,Economy (GDP per Capital),Family,Health (Life Expectancy),Freedom,Trust (Government Corruption),Generosity,Dystopia Residual
     public final String country;
     public final String region;
     public final int happyRank;
@@ -16,53 +16,9 @@ public class dataCountryIndicators {
     public final float trust;
     public final float generosity;
     public final float dystopiaResidual;
-
-    public String getCountry() {
-        return country;
-    }
-
-    public String getRegion() {
-        return region;
-    }
-
-    public int getHappyRank() {
-        return happyRank;
-    }
-
-    public float getHappyScore() {
-        return happyScore;
-    }
-
-    public float getStandartError() {
-        return standartError;
-    }
-
+    
     public float getEconomy() {
         return economy;
-    }
-
-    public float getFamily() {
-        return family;
-    }
-
-    public float getHealth() {
-        return health;
-    }
-
-    public float getFreedom() {
-        return freedom;
-    }
-
-    public float getTrust() {
-        return trust;
-    }
-
-    public float getGenerosity() {
-        return generosity;
-    }
-
-    public float getDystopiaResidual() {
-        return dystopiaResidual;
     }
 
     dataCountryIndicators(String country, String region, int happyRank, float happyScore, float standartError, float economy, float family, float health, float freedom, float trust, float generosity, float dystopiaResidual) {
