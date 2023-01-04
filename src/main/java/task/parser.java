@@ -9,8 +9,8 @@ import java.io.IOException;
 
 //Распарсив данные в файле CSV, нужно по ним создать набор объектов, заполнив все необходимые поля.
 public class parser {
-    public static ArrayList<dataCountryIndicators> getParse() throws IOException{
-        ArrayList dataArr = new ArrayList<dataCountryIndicators>();
+    public static ArrayList<dataCountryIndicators> getParse() {
+        ArrayList<dataCountryIndicators> dataArr = new ArrayList<>();
         try {
             List<String> fileName = Files.readAllLines(Paths.get("D:\\Users\\tsarg\\CountryIndicators\\dataset.csv"));
             fileName.remove(0);
@@ -18,7 +18,7 @@ public class parser {
         } catch (IOException e) {
             e.printStackTrace();
         }
-        System.out.println("парсер работает");
+        System.out.println("dataArr");
         return dataArr;
     }
 }
