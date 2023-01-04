@@ -26,7 +26,7 @@ public class taskRun {
         }
     }
 
-    private void createViewsForTask(databaseLoad dataLoad) throws SQLException {
+    private void createViewsForTask(databaseLoad dataLoad) {
         String sqlFirst = "CREATE VIEW IF NOT EXISTS res\n" +
                 "AS  \n" +
                 "SELECT country, abs((SELECT AVG(happyScore) FROM country)-happyScore)/(SELECT AVG(happyScore) FROM country) as '1',\n" +
