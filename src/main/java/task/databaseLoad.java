@@ -1,7 +1,5 @@
 package task;
 
-import org.sqlite.JDBC;
-
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -9,7 +7,7 @@ import java.util.List;
 
 public class databaseLoad {
     private static databaseLoad instance = null;
-    private Connection connection;
+    private final Connection connection;
 
     public static synchronized databaseLoad getInstance() throws SQLException {
         if (instance == null)
@@ -53,7 +51,6 @@ public class databaseLoad {
             stat.setObject(10, countryId.trust);
             stat.setObject(11, countryId.generosity);
             stat.setObject(12, countryId.dystopiaResidual);
-
             stat.execute();
         } catch (SQLException e) {
             e.printStackTrace();
@@ -63,7 +60,7 @@ public class databaseLoad {
     public void database(List<dataCountryIndicators> data) {
         try {
             databaseLoad dataL = databaseLoad.getInstance();
-            data.stream().forEach(count -> dataL.addCountry(count));
+            data.forEach(dataL::addCountry);
         } catch (SQLException e) {
             e.printStackTrace();
         }
