@@ -26,7 +26,7 @@ public class databaseLoad {
             List<dataCountryIndicators> products = new ArrayList<>();
             ResultSet result = stat.executeQuery("SELECT * FROM country");
             while (result.next()) {
-                products.add(new dataCountryIndicators(result.getString("country"), result.getString("region"), result.getInt("happyRank"), result.getFloat("happyScore"), result.getFloat("standartError"), result.getFloat("economy"), result.getFloat("family"), result.getFloat("health"), result.getFloat("freedom"), result.getFloat("trust"), result.getFloat("generosity"), result.getFloat("dystopiaResidual")));
+                products.add(new dataCountryIndicators(result.getString("country"), result.getString("region"), result.getInt("happyRank"), result.getFloat("happyScore"), result.getFloat("standardError"), result.getFloat("economy"), result.getFloat("family"), result.getFloat("health"), result.getFloat("freedom"), result.getFloat("trust"), result.getFloat("generosity"), result.getFloat("dystopiaResidual")));
             }
             return products;
         } catch (SQLException e) {
@@ -43,7 +43,7 @@ public class databaseLoad {
             stat.setObject(2, countryId.region);
             stat.setObject(3, countryId.happyRank);
             stat.setObject(4, countryId.happyScore);
-            stat.setObject(5, countryId.standartError);
+            stat.setObject(5, countryId.standardError);
             stat.setObject(6, countryId.economy);
             stat.setObject(7, countryId.family);
             stat.setObject(8, countryId.health);
