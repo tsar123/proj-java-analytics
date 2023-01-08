@@ -15,6 +15,9 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.stream.Collectors;
 
+//Сформируйте график по показателю экономики объеденив их по странам, 
+//Выведите в консоль страну с самым высоким показателем экономики среди "Latin America and Caribbean" и "Eastern Asia", 
+//Найдите страну с "самыми средними показателями" среди "Western Europe" и "North America"
 public class taskRun {
     public void printHighEconomy(databaseLoad dataL) {
         String sql = "SELECT country FROM country WHERE economy = (SELECT MAX(economy) FROM country WHERE region = 'Latin America and Caribbean' OR region = 'Eastern Asia')";
