@@ -42,9 +42,7 @@ public class taskRun {
                 "WHERE country IN (SELECT country FROM country \n" +
                 "WHERE region = 'Western Europe' OR region = 'North America')\n";
 
-        String sqlDouble = "CREATE VIEW IF NOT EXISTS resultTable\n" +
-                "AS  \n" +
-                "select country,res.[1]+res.[2]+res.[3]+res.[4]+res.[5]+res.[6]+res.[7]+res.[8]+res.[9] as 'sum' from res\n";
+        String sqlDouble = "CREATE VIEW IF NOT EXISTS resultTable AS SELECT country,res.[1]+res.[2]+res.[3]+res.[4]+res.[5]+res.[6]+res.[7]+res.[8]+res.[9] AS 'sum' FROM res\n";
 
         try (Statement stat = dataLoad.getConnection().createStatement()) {
             stat.execute(sqlFirst);
