@@ -9,7 +9,7 @@ public class main {
         try {
             var taskRun = new taskRun();
             var dataLoad = databaseLoad.getInstance();
-            if(fullDatabase == true){
+            if(fullDatabase){
                 ArrayList<dataCountryIndicators> data = parser.getParse();
                 dataLoad.database(data);
             }
